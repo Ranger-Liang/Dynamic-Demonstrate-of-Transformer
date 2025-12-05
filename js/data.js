@@ -31,10 +31,10 @@ const TransformerData = {
         },
 
         attention: {
-            bg: "#fbbf24",       
-            border: "#f59e0b",   
+            bg: "#f0ac00ff",       
+            border: "#301f01ff",   
             text: "#78350f",     
-            glow: "rgba(251, 191, 36, 0.6)" 
+            glow: "rgba(251, 190, 36, 0.74)" 
         },
       
         input: {

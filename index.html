@@ -20,18 +20,22 @@
     <section id="header" class="station">
         <div class="content-wrapper">
             <h1>Dynamic Demonstrate of Transformer</h1> 
-            <h2>Transformer架构的动态展示</h2> 
+            <h2>Transformer 架构的动态展示</h2> 
             <br>
             
             <p class="desc">
-                2017年，谷歌团队的革命性论文 <b><i><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank">Attention Is All You Need</a></i></b> 提出了 <b>Transformer</b> 架构。
-                它不仅彻底改变了自然语言处理（NLP）领域，更成为当代AI领域的核心基石，驱动着 ChatGPT、DeepSeek、Sora 等所有大模型的运行。
+                2017年，Google团队发表了革命性论文 <b><i><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank">Attention Is All You Need</a></i></b> ，
+                提出了 <b>Transformer</b> 架构。
+                它不仅彻底颠覆了自然语言处理（NLP）领域，更成为了当代 AI 领域的基石，驱动着 ChatGPT、DeepSeek、Sora 等所有顶级大模型的运行。
             </p>
             <p class="desc">
-                本项目将打破算法的“黑盒”，以机器翻译为例，摒弃枯燥复杂的数学公式，
-                通过全流程动态可视化，零门槛、直观地为您呈现 Transformer 的内部工作机制，助您深度理解 AI 的核心引擎。
+                本项目致力于打破算法的“黑盒”，以机器翻译这一经典应用为例，摒弃枯燥复杂的数学公式。
+                我们将通过全流程动态可视化，直观地为您呈现 Transformer 的工作机制，
+                助您深入理解这一 AI 的核心引擎，并亲身感受注意力机制 (Attention) 的巨大魅力。
             </p>
         </div>
+
+       
         
         <div class="scroll-down-indicator">
             <span>⌵</span> 
@@ -44,7 +48,9 @@
     <section id="station-1" class="station">
         <div class="content-wrapper">
             <h2>Station 1: Linear Projections（线性投影）</h2>
-            <p class="desc">将文字（token）转化为 Query, Key, Value 向量</p>
+            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (tensors) ：
+                中文(Target)转化为 <span style="color: #ef4444">Query</span>，
+                英文(Source)转化为 <span style="color: #3b82f6">Key</span> 和 <span style="color: #10b981">Value</p>
             <div id="container-1" class="viz-container">
             
                 <!-- Row 1: Query (红) -->
@@ -53,7 +59,7 @@
                     <div class="input-group" id="s1-in-q"></div>
                     <div class="gate">W_Q</div>
                     <div class="output-group" id="s1-out-q" ></div>
-                    <span class="vector">Query（查询）</span>
+                    <span class="vector">Query</span>
                 </div>
 
                 <!-- Row 2: Key (蓝) -->
@@ -62,7 +68,7 @@
                     <div class="input-group" id="s1-in-k"></div>
                     <div class="gate">W_K</div>
                     <div class="output-group" id="s1-out-k"></div>
-                    <span class="vector">Key（键）</span>
+                    <span class="vector">Key</span>
                 </div>
 
                 <!-- Row 3: Value (绿) -->
@@ -71,7 +77,7 @@
                     <div class="input-group" id="s1-in-v"></div>
                     <div class="gate">W_V</div>
                     <div class="output-group" id="s1-out-v"></div>
-                    <span class="vector">Value（值）</span>
+                    <span class="vector">Value</span>
                 </div>
             </div>
 
@@ -89,15 +95,20 @@
     <section id="station-2" class="station">
         <div class="content-wrapper">
             <h2>Station 2: Cross Attention（交叉注意力）</h2>
-            <p class="desc">Query 扫描所有的 Key，寻找相关性，将相关性转化为概率分布</p>
-            <div id="container-2" class="viz-container"></div>
+            <p class="desc">Query 通过向量点积扫描所有键 Key 以计算相关性分数，分数越大，相关性越强</p>
+            <div id="container-2"></div>
+        
+            <button onclick="playStation2()">▶ 运行</button>
         </div>
         <div class="scroll-down-indicator">
             <span>⌵</span> 
         </div>
     </section>
 
-、
+
+
+
+
     <section id="station-3" class="station">
         <div class="content-wrapper">
             <h2>Station 3: Multiply with Value & Output（加权与输出）</h2>

@@ -69,10 +69,10 @@ footer{ color: #9ca3af;}
 .row-label{
             width: 100px;
             color: #9ca3af;
-            font-size: 14px;
+            font-size: 16px;
             text-align: left;
             margin-right: auto;
-            margin-left: 20px;
+            margin-left: 40px;
             font-weight: bold;
         }
 
@@ -106,10 +106,10 @@ footer{ color: #9ca3af;}
 .vector{
         width: 100px;
         color: #9ca3af;
-        font-size: 14px;
+        font-size: 16x;
         text-align: right;
         margin-left: auto;
-        margin-right: 20px;
+        margin-right: 40px;
         font-weight: bold;
     }
 
@@ -121,26 +121,91 @@ footer{ color: #9ca3af;}
     opacity: 0;
 }
 
-    button {
-        margin-top: 15px;
-        padding: 8px 30px;
-        background: #6366f1;
-        color: white;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 16px;
-    }
+button {
+    margin-top: 15px;
+    padding: 8px 30px;
+    background: #6366f1;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-    .box {
-        width: 50px;
-        height: 50px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 16px;
-        margin-right: 10px;
-        position: relative;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
+.box {
+    width: 70px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.3s ease; 
+}
+
+.header-col {
+    height: 60px;
+}
+
+
+.header-row {
+    height: 60px;
+}
+
+.grid-cell {
+    background-color: #374151; 
+    color: #9ca3af;            
+    border: 1px solid #4b5563;
+}
+
+.matrix {
+    display: flex;
+    justify-content: center;
+    gap: 50px; 
+}
+
+#container-2 {
+    display: grid;
+    gap: 15px;        
+    padding: 20px;
+    align-content: center; 
+}
+
+
+.corner-header {
+    position: relative;    
+    background: linear-gradient(to bottom left, transparent 48%, #6b7280 50%, transparent 52%);
+}
+
+
+.corner-txt {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.c-key {
+    top: 4px;
+    right: 6px;
+    color: #3b82f6; 
+}
+
+
+.c-query {
+    bottom: 4px;
+    left: 6px;
+    color: #ef4444;
+}

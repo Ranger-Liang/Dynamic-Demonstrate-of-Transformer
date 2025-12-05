@@ -1,18 +1,18 @@
 function initStation1() {
 
-    const cnWords = TransformerData.text.target; 
-    const enWords = TransformerData.text.source;
+    const cn = TransformerData.text.target; 
+    const en = TransformerData.text.source;
 
 
-    renderBoxes("s1-in-q", cnWords, "input"); 
-    renderBoxes("s1-out-q", cnWords, "q");    
+    renderBoxes("s1-in-q", cn, "input"); 
+    renderBoxes("s1-out-q", cn, "q");    
 
 
-    renderBoxes("s1-in-k", enWords, "input");
-    renderBoxes("s1-out-k", enWords, "k");
+    renderBoxes("s1-in-k", en, "input");
+    renderBoxes("s1-out-k", en, "k");
 
-    renderBoxes("s1-in-v", enWords, "input");
-    renderBoxes("s1-out-v", enWords, "v");
+    renderBoxes("s1-in-v", en, "input");
+    renderBoxes("s1-out-v", en, "v");
 }
 
 
@@ -73,7 +73,7 @@ function playStation1() {
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { opacity: 1, duration: 0.1 }, "<");
 
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { 
-        x: 200, 
+        x: 180, 
         duration: 1, 
         ease: "back.out(1.5)" 
     });
