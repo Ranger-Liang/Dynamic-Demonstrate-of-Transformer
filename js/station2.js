@@ -59,7 +59,7 @@ function playStation2() {
     ];
 
 
-    tl.to(".grid-cell", { scale: 0.8, backgroundColor: "#374151", color: "#9ca3af", duration: 0.6 });
+    tl.to(".grid-cell", { scale: 0.8, backgroundColor: "#374151", color: "#9ca3af", duration: 0.8 });
 
 
     dataKeys.forEach((key, rowIdx) => {
@@ -79,7 +79,7 @@ function playStation2() {
                     backgroundColor: targetBg,
                     scale: targetScale,
                     duration: 1
-                }, "<0.05"); 
+                }, "<0.1"); 
             });
         }
     });

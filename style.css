@@ -85,9 +85,6 @@ footer{ color: #9ca3af;}
     height: 80px;
     border: 2px dashed rgba(255,255,255,0.2);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: rgba(255,255,255,0.5);
 }
 

@@ -56,7 +56,7 @@ function playStation1() {
 
     
     tl.to("#s1-in-q, #s1-in-k, #s1-in-v", { 
-        x: 330, 
+        xPercent: 100, 
         duration: 1, 
         ease: "power2.inOut" 
     });
@@ -73,7 +73,7 @@ function playStation1() {
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { opacity: 1, duration: 0.1 }, "<");
 
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { 
-        x: 170, 
+        xPercent: 50, 
         duration: 1, 
         ease: "back.out(1.5)" 
     });
