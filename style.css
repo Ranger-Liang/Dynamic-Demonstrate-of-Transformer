@@ -21,8 +21,8 @@ body {
 }
 
 .viz-container {
-    width: 1000px;
-    height: 500px;
+    width: 1200px;
+    height: 450px;
     background: #1f2937;
     border-radius: 16px;
     margin: 20px auto;
@@ -53,4 +53,94 @@ h1 { font-size: 2.5rem; margin-bottom: 1rem;}
 
 footer{ color: #9ca3af;}
 
+.pipeline-row{
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    height: 80px;
+}
 
+.input-group{
+    display: flex; 
+    position: absolute; 
+    left: 120px;
+}
+
+.row-label{
+            width: 100px;
+            color: #9ca3af;
+            font-size: 14px;
+            text-align: left;
+            margin-right: auto;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+
+.gate{
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+}
+
+.q {
+    top: 30px; 
+}
+
+.k {
+    top: 100px; 
+}
+
+.v {
+    top: 170px; 
+}
+
+.vector{
+        width: 100px;
+        color: #9ca3af;
+        font-size: 14px;
+        text-align: right;
+        margin-left: auto;
+        margin-right: 20px;
+        font-weight: bold;
+    }
+
+.output-group{
+    display: flex; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+    button {
+        margin-top: 15px;
+        padding: 8px 30px;
+        background: #6366f1;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 16px;
+        margin-right: 10px;
+        position: relative;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }

@@ -16,12 +16,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     
     <section id="header" class="station">
         <div class="content-wrapper">
-            <h1>Dynamic Deconstruction of Transformer</h1> 
-            <h2>Transformer架构的动态解构</h2> 
+            <h1>Dynamic Demonstrate of Transformer</h1> 
+            <h2>Transformer架构的动态展示</h2> 
             <br>
             
             <p class="desc">
@@ -33,6 +32,7 @@
                 通过全流程动态可视化，零门槛、直观地为您呈现 Transformer 的内部工作机制，助您深度理解 AI 的核心引擎。
             </p>
         </div>
+        
         <div class="scroll-down-indicator">
             <span>⌵</span> 
             <p class="desc">向下滚动<br>开始探索</p>
@@ -45,13 +45,45 @@
         <div class="content-wrapper">
             <h2>Station 1: Linear Projections（线性投影）</h2>
             <p class="desc">将文字（token）转化为 Query, Key, Value 向量</p>
-            <!-- 这里留空的 container，稍后用 JS 填充内容 -->
-            <div id="container-1" class="viz-container"></div>
-        </div>
+            <div id="container-1" class="viz-container">
+            
+                <!-- Row 1: Query (红) -->
+                <div class="pipeline-row q" >
+                    <span class="row-label">Target</span>
+                    <div class="input-group" id="s1-in-q"></div>
+                    <div class="gate">W_Q</div>
+                    <div class="output-group" id="s1-out-q" ></div>
+                    <span class="vector">Query（查询）</span>
+                </div>
+
+                <!-- Row 2: Key (蓝) -->
+                <div class="pipeline-row k" >
+                    <span class="row-label">Source</span>
+                    <div class="input-group" id="s1-in-k"></div>
+                    <div class="gate">W_K</div>
+                    <div class="output-group" id="s1-out-k"></div>
+                    <span class="vector">Key（键）</span>
+                </div>
+
+                <!-- Row 3: Value (绿) -->
+                <div class="pipeline-row v" >
+                    <span class="row-label">Source</span>
+                    <div class="input-group" id="s1-in-v"></div>
+                    <div class="gate">W_V</div>
+                    <div class="output-group" id="s1-out-v"></div>
+                    <span class="vector">Value（值）</span>
+                </div>
+            </div>
+
+            <button onclick="playStation1()">▶ 运行</button>
+          
+         </div>
+        
         <div class="scroll-down-indicator">
             <span>⌵</span> 
         </div>
     </section>
+
 
 
     <section id="station-2" class="station">
