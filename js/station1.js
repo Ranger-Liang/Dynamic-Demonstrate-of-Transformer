@@ -73,7 +73,7 @@ function playStation1() {
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { opacity: 1, duration: 0.1 }, "<");
 
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { 
-        x: 180, 
+        x: 170, 
         duration: 1, 
         ease: "back.out(1.5)" 
     });

@@ -59,7 +59,7 @@ function playStation2() {
     ];
 
 
-    tl.to(".grid-cell", { scale: 0.8, backgroundColor: "#374151", color: "#9ca3af", duration: 0.3 });
+    tl.to(".grid-cell", { scale: 0.8, backgroundColor: "#374151", color: "#9ca3af", duration: 0.6 });
 
 
     dataKeys.forEach((key, rowIdx) => {
@@ -71,14 +71,14 @@ function playStation2() {
 
                 const cellId = `#c-${rowIdx}-${colIdx}`;        
 
-                const targetBg = val > 0.2 ? "rgba(251, 191, 36, 0.2)" : "#374151";
-                const targetScale = val > 0.5 ? 1.1 : 1;
+                const targetBg = val > 0.2 ? "rgba(251, 191, 36, 0.6)" : "#23262cff";
+                const targetScale = 2.7**val * 0.5 ;
 
                 tl.to(cellId, {
                     innerText: val.toFixed(2), 
                     backgroundColor: targetBg,
                     scale: targetScale,
-                    duration: 0.5
+                    duration: 1
                 }, "<0.05"); 
             });
         }
@@ -95,7 +95,7 @@ function playStation2() {
         boxShadow: `0 0 20px ${TransformerData.colors.highlight.glow}`,
         scale: 1.3,
         fontWeight: "bold",
-        duration: 0.5
+        duration: 1
     }, "focus+=0.5");
 
 }

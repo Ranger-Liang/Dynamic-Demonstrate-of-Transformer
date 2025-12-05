@@ -35,11 +35,12 @@ h1 { font-size: 2.5rem; margin-bottom: 1rem;}
 
 .desc { color: #9ca3af; 
     margin-bottom: 2rem; 
-    padding-left: 15%;
-    padding-right: 15%;}
+    padding-left: 12%;
+    padding-right: 12%;
+    font-size: 20px;}
 
 
-.scroll-down-indicator {
+.scroll-down {
     position: absolute; 
     bottom: 20px; 
     display: flex;
@@ -47,7 +48,7 @@ h1 { font-size: 2.5rem; margin-bottom: 1rem;}
     align-items: center;
     left: 50%; 
     transform: translateX(-50%);
-    width: 100px;
+    width: 120px;
     color: white; 
 }
 
@@ -66,10 +67,9 @@ footer{ color: #9ca3af;}
     left: 120px;
 }
 
-.row-label{
-            width: 100px;
+.token{
             color: #9ca3af;
-            font-size: 16px;
+            font-size: 20px;
             text-align: left;
             margin-right: auto;
             margin-left: 40px;
@@ -91,27 +91,26 @@ footer{ color: #9ca3af;}
     color: rgba(255,255,255,0.5);
 }
 
-.q {
-    top: 30px; 
-}
-
-.k {
-    top: 100px; 
-}
-
-.v {
-    top: 170px; 
-}
 
 .vector{
-        width: 100px;
         color: #9ca3af;
-        font-size: 16x;
+        font-size: 20px;
         text-align: right;
         margin-left: auto;
         margin-right: 40px;
         font-weight: bold;
     }
+
+#Matrices{
+    width: 100px;
+    color: #9ca3af;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 .output-group{
     display: flex; 
@@ -128,7 +127,7 @@ button {
     color: white;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .box {
@@ -209,3 +208,72 @@ button {
     left: 6px;
     color: #ef4444;
 }
+
+
+
+.row-label {
+    position: absolute;
+    left: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #9ca3af;
+    font-weight: bold;
+}
+
+.value-group{
+    display: flex; 
+    position: absolute; 
+    left: 120px;
+}
+
+.prob-tag {
+    position: absolute;
+    top: -20px;
+    font-size: 14px;
+    color: #fbbf24;
+    opacity: 0;
+}
+
+.pipeline-row2{
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    height: 110px;
+}
+
+.operation{
+    color: #9ca3af;
+    font-size: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.result-container {
+    width: 70px;
+    height: 70px;
+    border: 3px dashed #9ca3af;
+    border-radius: 10px;
+    margin-right: 20px; 
+    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.result-box {
+            width: 100%;
+            height: 100%;
+            background: #fbbf24;
+            border: 2px solid #f59e0b;
+            color: #78350f;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0.5);
+        }

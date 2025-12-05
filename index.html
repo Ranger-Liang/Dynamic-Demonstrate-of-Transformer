@@ -37,25 +37,31 @@
 
        
         
-        <div class="scroll-down-indicator">
+        <div class="scroll-down">
             <span>⌵</span> 
             <p class="desc">向下滚动<br>开始探索</p>
         </div>
     </section>
 
 
-
+    <!--Station 1-->
     <section id="station-1" class="station">
         <div class="content-wrapper">
             <h2>Station 1: Linear Projections（线性投影）</h2>
-            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (tensors) ：
+            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (Tensors) ：
                 中文(Target)转化为 <span style="color: #ef4444">Query</span>，
                 英文(Source)转化为 <span style="color: #3b82f6">Key</span> 和 <span style="color: #10b981">Value</p>
-            <div id="container-1" class="viz-container">
-            
+            <div class="viz-container">
+
+                <div class="pipeline-row" >
+                    <span class="token">Tokens</span>
+                    <div id="Matrices">Matrices</div>
+                    <span class="vector">Tensors</span>
+                </div>                
+
                 <!-- Row 1: Query (红) -->
-                <div class="pipeline-row q" >
-                    <span class="row-label">Target</span>
+                <div class="pipeline-row" style="top: 10px" >
+                    <span class="token">Target</span>
                     <div class="input-group" id="s1-in-q"></div>
                     <div class="gate">W_Q</div>
                     <div class="output-group" id="s1-out-q" ></div>
@@ -63,8 +69,8 @@
                 </div>
 
                 <!-- Row 2: Key (蓝) -->
-                <div class="pipeline-row k" >
-                    <span class="row-label">Source</span>
+                <div class="pipeline-row" style="top: 60px">
+                    <span class="token">Source</span>
                     <div class="input-group" id="s1-in-k"></div>
                     <div class="gate">W_K</div>
                     <div class="output-group" id="s1-out-k"></div>
@@ -72,8 +78,8 @@
                 </div>
 
                 <!-- Row 3: Value (绿) -->
-                <div class="pipeline-row v" >
-                    <span class="row-label">Source</span>
+                <div class="pipeline-row" style="top: 110px">
+                    <span class="token">Source</span>
                     <div class="input-group" id="s1-in-v"></div>
                     <div class="gate">W_V</div>
                     <div class="output-group" id="s1-out-v"></div>
@@ -85,14 +91,14 @@
           
          </div>
         
-        <div class="scroll-down-indicator">
+        <div class="scroll-down">
             <span>⌵</span> 
         </div>
     </section>
 
 
-
-    <section id="station-2" class="station">
+    <!--Station 2-->
+    <section class="station">
         <div class="content-wrapper">
             <h2>Station 2: Cross Attention（交叉注意力）</h2>
             <p class="desc">Query 通过向量点积扫描所有键 Key 以计算相关性分数，分数越大，相关性越强</p>
@@ -100,7 +106,7 @@
         
             <button onclick="playStation2()">▶ 运行</button>
         </div>
-        <div class="scroll-down-indicator">
+        <div class="scroll-down">
             <span>⌵</span> 
         </div>
     </section>
@@ -108,19 +114,61 @@
 
 
 
-
+    <!--Station 3-->
     <section id="station-3" class="station">
         <div class="content-wrapper">
             <h2>Station 3: Multiply with Value & Output（加权与输出）</h2>
             <p class="desc">同时并行计算所有 Token 的加权结果，并通过线性层得到输出</p>
-            <div id="container-3" class="viz-container"></div>
+            <div class="viz-container">
+            
+                <div class="pipeline-row2" style="top: 20px;" >
+                    <div class="row-label">Target<br>Token 1</div>
+                    <div class="value-group" id= "v-wo"></div>
+                    <div class="operation">➔</div>
+                    <div class="result-container">
+                        <div id="r1" class="result-box">我</div>
+                    </div>
+                </div>
+
+                <div class="pipeline-row2" style="top: 10px;">
+                    <div class="row-label">Target<br>Token 2</div>
+                    <div class="value-group" id="v-zai"></div>
+                    <div class="operation">➔</div>
+                    <div class="result-container">
+                        <div id="r2" class="result-box">在</div>
+                    </div>
+                </div>
+                
+                <div class="pipeline-row2" style="top: 10px;">
+                    <div class="row-label">Target<br>Token 3</div>
+                    <div class="value-group" id="v-wanda"></div>
+                    <div class="operation">➔</div>
+                    <div class="result-container">
+                        <div id="r3" class="result-box">湾大</div>
+                    </div>
+                </div>
+
+                <div class="pipeline-row2" style="top: 10px;">
+                    <div class="row-label">Target<br>Token 3</div>
+                    <div class="value-group" id="v-xuexi"></div>
+                    <div class="operation">➔</div>
+                    <div class="result-container">
+                        <div id="r4" class="result-box">学习</div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <button onclick="playStation3()">▶ 运行</button>
         </div>
     </section>
+    
 
     
     <footer class="content-wrapper">
         <p>Created by Sirui Liang, Great Bay University</p>
-        <p>Thank you to Dr. Xiaodong Cun and Mr. Yihan Hu, for patient guidance in my study of Deeplearning.</p>
+        <p>Sincere gratitude to Dr. Xiaodong Cun and Mr. Yihan Hu, for their patient guidance during my study of Deep Learning.</p>
     </footer>
 </body>
 </html>

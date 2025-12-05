@@ -31,8 +31,8 @@ const TransformerData = {
         },
 
         attention: {
-            bg: "#f0ac00ff",       
-            border: "#301f01ff",   
+            bg: "#fbbf24",       
+            border: "#f59e0b",   
             text: "#78350f",     
             glow: "rgba(251, 190, 36, 0.74)" 
         },
@@ -45,34 +45,33 @@ const TransformerData = {
 
 
     logic: {
-        
-        wo_probs: [
-            0.92,        
-            0.04,    
-            0.03,
-            0.01
-        ],
+    wo_probs: [
+        0.75,   
+        0.14,
+        0.06,
+        0.05,
+    ],
 
-        zai_probs: [
-            0.05,
-            0.01,  
-            0.90,    
-            0.04,  
-        ],
+    zai_probs: [
+        0.15,
+        0.05,
+        0.65,   
+        0.15,
+    ],
 
-        wanda_probs: [
-            0.01,  
-            0.02,
-            0.11,
-            0.86,  
-        ],
+    wanda_probs: [
+        0.05,
+        0.05,
+        0.15,
+        0.75,   
+    ],
 
-        xuexi_probs: [ 
-            0.08,  
-            0.89,
-            0.02,  
-            0.01,  
-        ]
-    }
+    xuexi_probs: [
+        0.10,
+        0.68,   
+        0.12,
+        0.10,
+    ]
+}
 };
     
