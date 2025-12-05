@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Station 3: Batch Weighted Sum</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            background-color: #111827;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .stage {
+            width: 1000px;
+            height: 500px;
+            background: #1f2937;
+            border-radius: 16px;
+            position: relative;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px; /* 行间距 */
+        }
+
+        /* 每一行代表一个生成步骤 */
+        .process-row {
+            display: flex;
+            align-items: center;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .row-label {
+            position: absolute;
+            left: -80px;
+            width: 60px;
+            text-align: right;
+            font-size: 14px;
+            color: #9ca3af;
+            font-weight: bold;
+        }
+
+        /* 左侧：Source Values 容器 */
+        .source-values-group {
+            display: flex;
+            gap: 15px;
+            margin-right: 50px;
+        }
+
+        .val-box {
+            width: 70px;
+            height: 50px;
+            background: #064e3b;
+            border: 2px solid #10b981;
+            color: #a7f3d0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* 中间：加号和求和符号 */
+        .operation-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6b7280;
+            font-size: 24px;
+            opacity: 0.5;
+            width: 50px;
+        }
+
+        /* 右侧：结果容器 */
+        .result-container {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #4b5563;
+            border-radius: 12px;
+            margin-left: auto; /* 推到最右边 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 最终生成的文字方块 (初始隐藏) */
+        .result-box {
+            width: 100%;
+            height: 100%;
+            background: #fbbf24;
+            border: 2px solid #f59e0b;
+            color: #78350f;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        /* 概率提示 */
+        .prob-tag {
+            position: absolute;
+            top: -20px;
+            font-size: 10px;
+            color: #fbbf24;
+            opacity: 0;
+        }
+
+        .status { position: absolute; bottom: 20px; color: #9ca3af; }
+        button { position: absolute; bottom: -60px; padding: 12px 30px; background: #6366f1; border: none; color: white; border-radius: 20px; cursor: pointer; font-size: 16px; }
+
+    </style>
+</head>
+<body>
+
+    <h2>Station 3: Batch Weighted Sum</h2>
+    <p style="color:#aaa; margin-bottom:20px;">同时并行计算所有 Token 的加权结果</p>
+
+    <div class="stage">
+        
+        <!-- Row 1: 生成 "大" -->
+        <div class="process-row" id="row-1">
+            <div class="row-label">Target<br>Token 1</div>
+            
+            <div class="source-values-group">
+                <!-- 这里每一个都是 Value -->
+                <div class="val-box v-great">Great<div class="prob-tag">0.85</div></div>
+                <div class="val-box v-bay">Bay<div class="prob-tag">0.10</div></div>
+                <div class="val-box v-uni">Uni<div class="prob-tag">0.05</div></div>
+            </div>
+
+            <div class="operation-area">➔</div>
+
+            <div class="result-container">
+                <div class="result-box">大</div>
+            </div>
+        </div>
+
+        <!-- Row 2: 生成 "学" -->
+        <div class="process-row" id="row-2">
+            <div class="row-label">Target<br>Token 2</div>
+            
+            <div class="source-values-group">
+                <div class="val-box v-great">Great<div class="prob-tag">0.02</div></div>
+                <div class="val-box v-bay">Bay<div class="prob-tag">0.03</div></div>
+                <div class="val-box v-uni">Uni<div class="prob-tag">0.95</div></div>
+            </div>
+
+            <div class="operation-area">➔</div>
+
+            <div class="result-container">
+                <div class="result-box">学</div>
+            </div>
+        </div>
+
+        <div class="status" id="status-text">准备计算...</div>
+    </div>
+
+    <button onclick="playBatchSum()">执行并行计算</button>
+
+<script>
+    function playBatchSum() {
+        const tl = gsap.timeline();
+        const status = document.getElementById('status-text');
+
+        // 1. 应用权重 (Apply Weights)
+        // 这一步展示每一行虽然输入一样，但“看”的地方不一样
+        tl.call(() => status.innerText = "1. 并行应用权重 (Attention Weights)");
+
+        // --- 处理第一行 (大 -> Great) ---
+        // Great 变大，其他变小
+        tl.to("#row-1 .v-great", { scale: 1.2, backgroundColor: "#065f46", borderColor: "#34d399", duration: 0.8 });
+        tl.to("#row-1 .v-bay, #row-1 .v-uni", { scale: 0.7, opacity: 0.3, filter: "grayscale(100%)", duration: 0.8 }, "<");
+        // 显示概率
+        tl.to("#row-1 .prob-tag", { opacity: 1, y: 5, duration: 0.5 }, "<");
+
+        // --- 处理第二行 (学 -> Uni) ---
+        // Uni 变大，其他变小
+        tl.to("#row-2 .v-uni", { scale: 1.2, backgroundColor: "#065f46", borderColor: "#34d399", duration: 0.8 }, "<"); // 和上面同时发生
+        tl.to("#row-2 .v-great, #row-2 .v-bay", { scale: 0.7, opacity: 0.3, filter: "grayscale(100%)", duration: 0.8 }, "<");
+        tl.to("#row-2 .prob-tag", { opacity: 1, y: 5, duration: 0.5 }, "<");
+
+
+        // 2. 汇聚求和 (Summation)
+        tl.call(() => status.innerText = "2. 所有的 Value 汇聚融合");
+        
+        // 隐藏概率标签
+        tl.to(".prob-tag", { opacity: 0, duration: 0.2 });
+
+        // 第一行的所有方块飞向右侧结果框
+        tl.to("#row-1 .val-box", { 
+            x: 450, // 向右飞的距离 (估算值)
+            opacity: 0, 
+            scale: 0.2, 
+            duration: 1, 
+            ease: "power2.in",
+            stagger: 0.05 // 稍微错开一点点，更有粒子感
+        });
+
+        // 第二行的所有方块飞向右侧结果框
+        tl.to("#row-2 .val-box", { 
+            x: 450, 
+            opacity: 0, 
+            scale: 0.2, 
+            duration: 1, 
+            ease: "power2.in",
+            stagger: 0.05
+        }, "<"); // 同时进行
+
+
+        // 3. 产出结果 (Output)
+        tl.call(() => status.innerText = "3. 生成最终翻译结果");
+
+        // 结果框弹出
+        tl.to(".result-box", {
+            opacity: 1,
+            scale: 1,
+            rotationY: 360, // 华丽的翻转出场
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+
+        // 最后的庆祝高亮
+        tl.to(".result-box", {
+            boxShadow: "0 0 40px rgba(251, 191, 36, 0.6)",
+            duration: 0.5,
+            yoyo: true,
+            repeat: 1
+        });
+    }
+</script>
+</body>
+</html>
