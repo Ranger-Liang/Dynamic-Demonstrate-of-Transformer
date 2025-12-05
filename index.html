@@ -1,6 +1,83 @@
-<html>
-    <head>
-        <meta> charset="UTF-8" >
-        <title></title>
-    </head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformer_demo</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/station1.js"></script>
+    <script src="js/station2.js"></script>
+    <script src="js/station3.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <section id="header" class="station">
+        <div class="content-wrapper">
+            <h1>Dynamic Deconstruction of Transformer</h1> 
+            <h2>Transformer架构的动态解构</h2> 
+            <br>
+            
+            <p class="desc">
+                2017年，谷歌团队的革命性论文 <b><i><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank">Attention Is All You Need</a></i></b> 提出了 <b>Transformer</b> 架构。
+                它不仅彻底改变了自然语言处理（NLP）领域，更成为当代AI领域的核心基石，驱动着 ChatGPT、DeepSeek、Sora 等所有大模型的运行。
+            </p>
+            <p class="desc">
+                本项目将打破算法的“黑盒”，以机器翻译为例，摒弃枯燥复杂的数学公式，
+                通过全流程动态可视化，零门槛、直观地为您呈现 Transformer 的内部工作机制，助您深度理解 AI 的核心引擎。
+            </p>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>⌵</span> 
+            <p class="desc">向下滚动<br>开始探索</p>
+        </div>
+    </section>
+
+
+
+    <section id="station-1" class="station">
+        <div class="content-wrapper">
+            <h2>Station 1: Linear Projections（线性投影）</h2>
+            <p class="desc">将文字（token）转化为 Query, Key, Value 向量</p>
+            <!-- 这里留空的 container，稍后用 JS 填充内容 -->
+            <div id="container-1" class="viz-container"></div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>⌵</span> 
+        </div>
+    </section>
+
+
+    <section id="station-2" class="station">
+        <div class="content-wrapper">
+            <h2>Station 2: Cross Attention（交叉注意力）</h2>
+            <p class="desc">Query 扫描所有的 Key，寻找相关性，将相关性转化为概率分布</p>
+            <div id="container-2" class="viz-container"></div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>⌵</span> 
+        </div>
+    </section>
+
+、
+    <section id="station-3" class="station">
+        <div class="content-wrapper">
+            <h2>Station 3: Multiply with Value & Output（加权与输出）</h2>
+            <p class="desc">同时并行计算所有 Token 的加权结果，并通过线性层得到输出</p>
+            <div id="container-3" class="viz-container"></div>
+        </div>
+    </section>
+
+    
+    <footer class="content-wrapper">
+        <p>Created by Sirui Liang, Great Bay University</p>
+        <p>Thank you to Dr. Xiaodong Cun and Mr. Yihan Hu, for patient guidance in my study of Deeplearning.</p>
+    </footer>
+</body>
 </html>
