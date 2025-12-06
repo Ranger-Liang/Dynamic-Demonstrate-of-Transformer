@@ -20,7 +20,7 @@ Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原�
 *   注意力机制 (Attention) 是如何计算单词间关联的。
 *   模型是如何并行生成最终翻译结果的。
 
-点击[链接](https://ranger-liang.github.io/Dynamic-Demonstrate-of-Transforme/)可直接访问网页
+点击[链接](https://ranger-liang.github.io/Dynamic-Demonstrate-of-Transformer/)可直接访问网页
 
 ---
 
