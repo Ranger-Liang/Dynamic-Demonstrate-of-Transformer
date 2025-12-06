@@ -86,7 +86,7 @@ transformer-demo/
 
 1.  **Clone the repo**
     ```bash
-    git clone https://github.com/your-username/dynamic-transformer-demo.git
+    git clone https://github.com/Ranger-Liang/Dynamic-Demonstrate-of-Transformer.git
     ```
 
 2.  **Run it**
