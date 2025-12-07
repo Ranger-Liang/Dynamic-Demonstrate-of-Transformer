@@ -1,4 +1,4 @@
-# 🧠 Dynamic Transformer Demonstration
+# 🧠 Dynamic Demonstrate of Transformer
 > **Visually demystifying the core engine of Modern AI.**  
 > 一个基于 Web 的交互式 Transformer 机器翻译原理动态演示。
 
@@ -9,9 +9,9 @@
 
 ---
 
-## 📖 Introduction (项目简介)
+## 📖 Introduction
 
-**Dynamic Transformer Demonstration** 是一个致力于打破算法“黑盒”的教育类开源项目。
+**Dynamic Demonstrate of Transformer** 是一个致力于打破算法“黑盒”的教育类开源项目。
 
 Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原理（矩阵乘法、Softmax、Attention）往往晦涩难懂。本项目摒弃了枯燥的公式推导，采用 **"流水线工厂"** 的视觉隐喻，将抽象的计算过程拆解为直观的 2D 动态演示。
 
@@ -24,7 +24,7 @@ Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原�
 
 ---
 
-## ✨ Key Features (核心特性)
+## ✨ Key Features
 
 *   **⚡️ 零依赖 & 轻量级**: 纯原生 HTML/CSS/JS 构建，无需 Python 后端或重型前端框架。
 *   **🧩 模块化设计 (Modularity)**: 系统被拆解为三个独立的计算站点（Station），代码结构清晰，易于扩展。
@@ -34,7 +34,7 @@ Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原�
 
 ---
 
-## 🚀 Demo (演示流程)
+## 🚀 Demo
 
 本项目将 Transformer 的推理过程拆解为三个核心步骤（Station）：
 
@@ -54,7 +54,7 @@ Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原�
 
 ---
 
-## 🛠️ Tech Stack (技术栈)
+## 🛠️ Tech Stack
 
 *   **Core**: HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+)
 *   **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/) - 用于处理复杂的时间轴动画。
@@ -62,7 +62,7 @@ Transformer 是 ChatGPT 等大语言模型（LLM）的基石，但其数学原�
 
 ---
 
-## 📂 Project Structure (目录结构)
+## 📂 Project Structure
 
 ```text
 transformer-demo/
@@ -80,7 +80,7 @@ transformer-demo/
 
 ---
 
-## 🏃 Getting Started (快速开始)
+## 🏃 Getting Started
 
 由于本项目是纯静态网页，无需复杂的安装过程。
 
@@ -100,7 +100,7 @@ transformer-demo/
 
 ---
 
-## 🧠 Educational Value (知识点涵盖)
+## 🧠 Educational Value
 
 本项目不仅是代码实现，更是计算机科学思维的体现（基于cs101, GBU）：
 
@@ -110,7 +110,7 @@ transformer-demo/
 
 ---
 
-## 🤝 Contributing (贡献)
+## 🤝 Contributing
 
 欢迎提交 Issue 或 Pull Request！如果你有更好的可视化想法，比如加入 Multi-Head Attention（多头注意力）的演示，请随时贡献。
 
@@ -124,4 +124,4 @@ This project is open source and available.
 
 ### Author
 
-这是我进入 GBU 后完成的首个项目（cs101课程的期末作业）。虽然看起来十分基础，但它标志着一个起点，仅作纪念。🌸
+这是我进入 GBU 后完成的首个项目（cs101课程的期末作业），也是学习DL后的首个output。虽然看起来十分简陋，但它是一个起点，仅作纪念。🌸

@@ -8,3 +8,6 @@ function init(){
     initStation3();
 };
 
+function reset(){
+    window.location.reload();
+}
