@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +18,11 @@
     作品概念：Transformer机器翻译过程的动态展示
     知识点： 抽象化、模块化、分治范式
     创新点：直观呈现复杂的复杂的数学运算、模块化展示
-    关于AI：由于项目设计大量专业知识，在idea阶段大量与Gemini-2.5-flash讨论交流可视化方法和我需要学习的知识
+    关于AI：由于项目设计大量专业知识，在idea阶段大量与Gemini-2.5-flash讨论交流可视化方法并询问我需要学习的知识
            在编写第二阶段的代码时，使用Gemini-3.0-pro-preview修正了无法正确排版的bug
+    参考资料：
+        1. Attention is All You Need, Vaswani et al., NeurIPS 2017
+        2. 注意力机制, 李沐等, 《动手学深度学习》2022年版
     -->
 
 </head>
@@ -33,14 +35,15 @@
             <br>
             
             <p class="desc">
-                2017年，Google团队发表了革命性论文 <b><i><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank">Attention Is All You Need</a></i></b> ，
-                提出了 <b>Transformer</b> 架构。
-                它不仅彻底颠覆了自然语言处理（NLP）领域，更成为了当代 AI 领域的基石，驱动着 ChatGPT、DeepSeek、Sora 等所有顶级大模型的运行。
+                In 2017, Google published a revolutionary paper called <b><i><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank">Attention Is All You Need</a></i></b> , 
+                proposing the <b>Transformer</b> architecture.
+                It not only completely subverted the field of natural language processing (NLP), but also became the cornerstone of contemporary AI, driving the operation of all big models such as ChatGPT, DeepSeek, Sora, etc.
             </p>
             <p class="desc">
-                本项目致力于打破算法的“黑盒”，以机器翻译这一经典应用为例，摒弃枯燥复杂的数学公式。
-                我们将通过全流程动态可视化，直观地为您呈现 Transformer 的工作机制，
-                助您深入理解这一 AI 的核心引擎，并亲身感受注意力机制 (Attention) 的巨大魅力。
+                This project aims to demystify the "black box" using the machine translation, a classic application of Transformer, as an example, 
+                while avoiding dry and complicated mathematical formulas.
+                We will offer a dynamic visualization to intuitively illustrate the inner workings of the Transformer model. 
+                This approach will help you gain a deep understanding of this core AI engine and experience the immense power of the Attention.
             </p>
             
         </div>
@@ -49,14 +52,25 @@
         
         <div class="scroll-down">
             <span>⌵</span> 
-            <p class="desc">向下滚动<br>开始探索</p>
+            <p class="desc">Scroll down to explore</p>
         </div>
     </section>
 
-    <section id="header" class="station">   
-        <img src="transformer demo.gif" width="1000">
-        <div class="scroll-down">
-            <span>⌵</span> 
+    <section id="overview" class="station">   
+        <div class="content-wrapper">
+            <h2>Overview of Complete Process</h2>
+            <p class="desc" id="overview-text">
+                Here is an overview of how to train a Transformer model which translates English into Chinese, broken down into 3 main stations.
+                <b>Input:</b> Dataset including English sentences, as Source, and corresponding Chinese translations, as Target. <br>
+                <b>Station 1:</b> Convert tokens into Vectors (Query, Key, Value) using projection matrices. <br>
+                <b>Station 2:</b> Calculate Attention Weights by dot-producting Query with all Keys. <br>
+                <b>Station 3:</b> Compute Weighted Values, while Values with higher correlation receive higher weights.  <br>
+                <b>Output:</b> Produce final output through linear layers.
+                <img src="transformer demo.gif" width="100%">
+            </p>
+            <div class="scroll-down">
+                <span>⌵</span> 
+            </div>
         </div>
     </section>
     
@@ -64,10 +78,10 @@
     <!--Station 1-->
     <section id="station-1" class="station">
         <div class="content-wrapper">
-            <h2>Station 1: Linear Projections（线性投影）</h2>
-            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (Vectors) ：
-                中文(Target)转化为 <span style="color: #ef4444">Query</span>，
-                英文(Source)转化为 <span style="color: #3b82f6">Key</span> 和 <span style="color: #10b981">Value</p>
+            <h2>Station 1: Linear Projections</h2>
+            <p class="desc">The text (tokens) are transformed into vectors using projection matrices: 
+                Chinese (Target) into <span style="color: #ef4444">Query</span> and 
+                English (Source) into <span style="color: #3b82f6">Key</span> and <span style="color: #10b981">Value.</p>
             <div class="viz-container">
 
                 <div class="pipeline-row" >
@@ -104,8 +118,8 @@
                 </div>
             </div>
 
-            <button onclick="playStation1()" class="play">▶ 运行</button>
-            <button onclick="reset()" class="reset">⟳ 重置</button>
+            <button onclick="playStation1()" class="play">▶ Play</button>
+            <button onclick="reset()" class="reset">⟳ Reset</button>
           
          </div>
         
@@ -118,12 +132,12 @@
     <!--Station 2-->
     <section class="station">
         <div class="content-wrapper">
-            <h2>Station 2: Cross Attention（交叉注意力）</h2>
-            <p class="desc">Query 通过向量点积扫描所有键 Key 以计算注意力权重 (Attention Weight)，权重越高，相关性越强</p>
+            <h2>Station 2: Cross Attention</h2>
+            <p class="desc">The Query scan all the Keys via vector dot product to calculate Attention Weights. The higher the weight, the stronger the relevance.</p>
             <div id="container-2"></div>
         
-            <button onclick="playStation2() " class="play">▶ 运行</button>
-            <button onclick="reset()" class="reset">⟳ 重置</button>
+            <button onclick="playStation2() " class="play">▶ Play</button>
+            <button onclick="reset()" class="reset">⟳ Reset</button>
         </div>
         <div class="scroll-down">
             <span>⌵</span> 
@@ -136,8 +150,9 @@
     <!--Station 3-->
     <section id="station-3" class="station">
         <div class="content-wrapper">
-            <h2>Station 3: Multiply with Value & Output（加权与输出）</h2>
-            <p class="desc">计算所有 value 的加权和(Weighted Value)，聚焦于权重最大的相关值，最终经由线性层映射得到输出。</p>
+            <h2>Station 3: Multiply with Value & Output</h2>
+            <p class="desc">Compute Weighted Values, while Values with higher correlation receive higher weights.
+                and then produce final output through linear layers.</p>
             <div class="viz-container">
             
                 <div class="pipeline-row2" style="top: 20px;" >
@@ -179,8 +194,8 @@
 
 
             </div>
-            <button onclick="playStation3()" class="play">▶ 运行</button>
-            <button onclick="reset()" class="reset">⟳ 重置</button>
+            <button onclick="playStation3()" class="play">▶ Play</button>
+            <button onclick="reset()" class="reset">⟳ Reset</button>
         </div>
     </section>
     
