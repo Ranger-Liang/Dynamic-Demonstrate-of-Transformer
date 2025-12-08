@@ -71,7 +71,7 @@ function playStation2() {
 
                 const cellId = `#c-${rowIdx}-${colIdx}`;        
 
-                const targetBg = val > 0.2 ? "rgba(251, 191, 36, 0.6)" : "#23262cff";
+                const targetBg = val > 0.2 ? "#fbbf24" : "#23262cff";
                 const targetScale = 2.7**val * 0.5 ;
 
                 tl.to(cellId, {

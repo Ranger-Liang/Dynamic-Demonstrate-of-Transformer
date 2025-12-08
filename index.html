@@ -42,8 +42,9 @@
                 我们将通过全流程动态可视化，直观地为您呈现 Transformer 的工作机制，
                 助您深入理解这一 AI 的核心引擎，并亲身感受注意力机制 (Attention) 的巨大魅力。
             </p>
+            
         </div>
-
+        
        
         
         <div class="scroll-down">
@@ -52,12 +53,19 @@
         </div>
     </section>
 
+    <section id="header" class="station">   
+        <img src="transformer demo.gif" width="1000">
+        <div class="scroll-down">
+            <span>⌵</span> 
+        </div>
+    </section>
+    
 
     <!--Station 1-->
     <section id="station-1" class="station">
         <div class="content-wrapper">
             <h2>Station 1: Linear Projections（线性投影）</h2>
-            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (Tensors) ：
+            <p class="desc">通过投影矩阵，将文字 (tokens) 转化为向量 (Vectors) ：
                 中文(Target)转化为 <span style="color: #ef4444">Query</span>，
                 英文(Source)转化为 <span style="color: #3b82f6">Key</span> 和 <span style="color: #10b981">Value</p>
             <div class="viz-container">
@@ -65,7 +73,7 @@
                 <div class="pipeline-row" >
                     <span class="token">Tokens</span>
                     <div id="Matrices">Matrices</div>
-                    <span class="vector">Tensors</span>
+                    <span class="vector">Vectors</span>
                 </div>                
 
                 <!-- Row 1: Query (红) -->
@@ -111,7 +119,7 @@
     <section class="station">
         <div class="content-wrapper">
             <h2>Station 2: Cross Attention（交叉注意力）</h2>
-            <p class="desc">Query 通过向量点积扫描所有键 Key 以计算注意力分数 (attention score)，分数越大，相关性越强</p>
+            <p class="desc">Query 通过向量点积扫描所有键 Key 以计算注意力权重 (Attention Weight)，权重越高，相关性越强</p>
             <div id="container-2"></div>
         
             <button onclick="playStation2() " class="play">▶ 运行</button>
@@ -129,7 +137,7 @@
     <section id="station-3" class="station">
         <div class="content-wrapper">
             <h2>Station 3: Multiply with Value & Output（加权与输出）</h2>
-            <p class="desc">计算所有 value 的加权和，聚焦于权重最大的相关值，最终经由线性层映射得到输出。</p>
+            <p class="desc">计算所有 value 的加权和(Weighted Value)，聚焦于权重最大的相关值，最终经由线性层映射得到输出。</p>
             <div class="viz-container">
             
                 <div class="pipeline-row2" style="top: 20px;" >

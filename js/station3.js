@@ -84,6 +84,6 @@ function playStation3(){
     tl.to("#r4.result-box", {opacity: 1, scale: 1, rotationY: 360, duration: 0.5, ease: "back.out(1.7)"});
 
 
-    tl.to(".result-box", {boxShadow: "0 0 40px rgba(251, 191, 36, 0.6)", duration: 0.5, yoyo: true, });
+    tl.to(".result-box", {boxShadow: "0 0 40px #FBBF24", duration: 0.5, yoyo: true, });
     }
 
