@@ -59,15 +59,17 @@
     <section id="overview" class="station">   
         <div class="content-wrapper">
             <h2>Overview of Complete Process</h2>
-            <p class="desc" id="overview-text">
-                Here is an overview of how to train a Transformer model which translates English into Chinese, broken down into 3 main stations.
+            <p class="desc" id="overview-text" style="line-height: 2;">
                 <b>Input:</b> Dataset including English sentences, as Source, and corresponding Chinese translations, as Target. <br>
                 <b>Station 1:</b> Convert tokens into Vectors (Query, Key, Value) using projection matrices. <br>
                 <b>Station 2:</b> Calculate Attention Weights by dot-producting Query with all Keys. <br>
                 <b>Station 3:</b> Compute Weighted Values, while Values with higher correlation receive higher weights.  <br>
                 <b>Output:</b> Produce final output through linear layers.
-                <img src="transformer demo.gif" width="100%">
+            <div class="image-wrapper">
+                <img src="transformer demo.gif" class="image">
+            </div>  
             </p>
+
             <div class="scroll-down">
                 <span>⌵</span> 
             </div>

@@ -75,6 +75,6 @@ function playStation1() {
     tl.to("#s1-out-q, #s1-out-k, #s1-out-v", { 
         xPercent: 50, 
         duration: 1, 
-        ease: "back.out(1.5)" 
+        ease: "back.out(1.3)" 
     });
 }
